@@ -1,0 +1,1 @@
+<img width="1195" src="/local/templates/main/assets/img/blog/blog1.jpg" height="600">
