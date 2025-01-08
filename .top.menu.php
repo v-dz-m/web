@@ -1,0 +1,47 @@
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
+<?
+$aMenuLinks = array(
+    array(
+        "Главная",
+        "/",
+        array(),
+        array(),
+        ""
+    ),
+    array(
+        "О нас",
+        "/about/",
+        array(),
+        array(),
+        ""
+    ),
+    array(
+        "Услуги",
+        "/services/",
+        array(),
+        array(),
+        ""
+    ),
+    array(
+        "Портфолио",
+        "/portfolio/",
+        array(),
+        array(),
+        ""
+    ),
+    array(
+        "Блог",
+        "/blog/",
+        array(),
+        array(),
+        ""
+    ),
+    array(
+        "Контакты",
+        "/contacts/",
+        array(),
+        array(),
+        ""
+    ),
+);
+?>
