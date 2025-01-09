@@ -21,7 +21,7 @@ $this->setFrameMode(true);
                     <div class="col-md-3 col-sm-3">
                         <div class="single-count white-text text-center">
                             <?= ($arItem['DETAIL_TEXT']) ?? "" ?>
-                            <h2 class="counter"><?= ($arItem['PREVIEW_TEXT']) ?? "" ?></h2>
+                            <h2><?= ($arItem['PREVIEW_TEXT']) ?? "" ?></h2>
                             <p><?= ($arItem['NAME']) ?? "" ?></p>
                         </div>
                     </div>
