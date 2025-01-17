@@ -18,8 +18,8 @@ $this->setFrameMode(true);
         <div class="container">
             <div class="row">
                 <div class="section-heading text-center mb-70">
-                    <h2>Основные направления</h2>
-                    <p>Всё что нужно для производства сайта любой сложности</p>
+                    <h2><?= $arResult['PARENT_NAME'] ?></h2>
+                    <p><?= $arResult['PARENT_DESCRIPTION'] ?? "" ?></p>
                 </div>
             </div>
             <div class="row">
