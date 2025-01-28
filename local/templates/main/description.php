@@ -1,8 +1,9 @@
 <?
-$arTemplate = array (
-  'NAME' => 'Фиксированный',
-  'DESCRIPTION' => 'Легкий и светлый шаблон с фиксированной шириной.',
-  'SORT' => '',
-  'TYPE' => '',
+if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
+	die();
+
+$arTemplate = Array(
+	'NAME' => 'Основной шаблон',
+	'DESCRIPTION' => 'Основной шаблон для сайта'
 );
 ?>

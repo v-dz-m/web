@@ -1,1 +1,1 @@
-<img width="1195" src="/local/templates/main/assets/img/blog/blog1.jpg" height="600">
+<img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/about/o_nas_text_block.jpg" alt=""/>

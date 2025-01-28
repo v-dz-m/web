@@ -23,7 +23,7 @@ $this->setFrameMode(true);
         </div>
         <div class="row">
 
-            <? $APPLICATION->IncludeComponent("bitrix:catalog.section.list", "portfolio_section_list", [
+            <? $APPLICATION->IncludeComponent("bitrix:catalog.section.list", "PortfolioSectionsList", [
                 "ADD_SECTIONS_CHAIN"  => "N",    // Включать раздел в цепочку навигации
                 "CACHE_GROUPS"        => "N",    // Учитывать права доступа
                 "CACHE_TIME"          => "36000000",    // Время кеширования (сек.)
@@ -33,8 +33,8 @@ $this->setFrameMode(true);
                 "IBLOCK_TYPE"         => $arParams["IBLOCK_TYPE"],    // Тип инфоблока
                 "SECTION_CODE"        => "",    // Код раздела
                 "SECTION_FIELDS"      => [    // Поля разделов
-                    0 => "CODE",
-                    1 => "NAME",
+                                              0 => "CODE",
+                                              1 => "NAME",
                 ],
                 "SECTION_ID"          => "",    // ID раздела
                 "SECTION_URL"         => "",    // URL, ведущий на страницу с содержимым раздела
@@ -45,7 +45,7 @@ $this->setFrameMode(true);
                 "VIEW_MODE"           => "LINE",    // Вид списка подразделов
             ], false); ?>
 
-            <? $APPLICATION->IncludeComponent("bitrix:news.list", "portfolio_elements_list", [
+            <? $APPLICATION->IncludeComponent("bitrix:news.list", "PortfolioElementsList", [
                 "IBLOCK_TYPE"                     => $arParams["IBLOCK_TYPE"],
                 "IBLOCK_ID"                       => $arParams["IBLOCK_ID"],
                 "NEWS_COUNT"                      => $arParams["NEWS_COUNT"],

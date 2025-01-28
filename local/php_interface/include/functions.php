@@ -4,6 +4,11 @@ use Bitrix\Iblock\IblockTable;
 use Bitrix\Main\Loader;
 
 /**
+ * Возвращает ID инфоблока по его коду
+ *
+ * @param string $code - код ИБ
+ *
+ * @return int - ID найденного ИБ
  * @throws Exception
  */
 function getIblockIdByCode(string $code): int

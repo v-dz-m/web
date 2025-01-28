@@ -1,6 +1,7 @@
 <?
-if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
+if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
     die();
+}
 
 use Bitrix\Main\Page\Asset;
 
@@ -45,7 +46,8 @@ use Bitrix\Main\Page\Asset;
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/plugins.js');
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/main.js');
 
-    Asset::getInstance()->addString('<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">');
+    Asset::getInstance()
+        ->addString('<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">');
     ?>
 
     <? $APPLICATION->ShowHead(); ?>
@@ -70,25 +72,16 @@ use Bitrix\Main\Page\Asset;
                 <div class="col-md-6 col-sm-6">
                     <div class="welcome">
                         <span>
-                            <?$APPLICATION->IncludeComponent(
-                                "bitrix:main.include",
-                                "",
-                                Array(
-                                    "AREA_FILE_SHOW" => "file",
-                                    "PATH" => SITE_TEMPLATE_PATH . "/includes/header_email.php",
-                                )
-                            );?>
+                            <? $APPLICATION->IncludeComponent("bitrix:main.include", "", [
+                                "AREA_FILE_SHOW" => "file",
+                                "PATH"           => SITE_TEMPLATE_PATH . "/includes/header_email.php",
+                            ]); ?>
                         </span>
                         <span>
-
-                            <?$APPLICATION->IncludeComponent(
-                                "bitrix:main.include",
-                                "",
-                                Array(
-                                    "AREA_FILE_SHOW" => "file",
-                                    "PATH" => SITE_TEMPLATE_PATH . "/includes/header_phone.php",
-                                )
-                            );?>
+                            <? $APPLICATION->IncludeComponent("bitrix:main.include", "", [
+                                "AREA_FILE_SHOW" => "file",
+                                "PATH"           => SITE_TEMPLATE_PATH . "/includes/header_phone.php",
+                            ]); ?>
                         </span>
                     </div>
                 </div>
@@ -109,8 +102,7 @@ use Bitrix\Main\Page\Asset;
 <?php endif; ?>
 
 <!-- Шапка сайта (меню) -->
-<header id="sticky-header"
-        class="header-area header-wrapper <?= ($APPLICATION->GetCurDir() === '/') ? 'transparent-header' : 'white-bg'; ?>">
+<header id="sticky-header" class="header-area header-wrapper <?= $APPLICATION->GetCurDir() === '/' ? 'transparent-header': 'white-bg'; ?> ">
     <!-- Меню (для десктопа) -->
     <div class="header-middle-area full-width">
         <div class="container">
@@ -127,24 +119,19 @@ use Bitrix\Main\Page\Asset;
 
                     <div class="col-md-10 col-sm-9 col-xs-4 text-right dark-menu">
                         <!-- Меню (основное) -->
-                        <? $APPLICATION->IncludeComponent(
-                            "bitrix:menu",
-                            "top_menu",
-                            array(
-                                "ALLOW_MULTI_SELECT" => "N",
-                                "CHILD_MENU_TYPE" => "left",
-                                "DELAY" => "N",
-                                "MAX_LEVEL" => "2",
-                                "MENU_CACHE_GET_VARS" => array(),
-                                "MENU_CACHE_TIME" => "3600",
-                                "MENU_CACHE_TYPE" => "N",
-                                "MENU_CACHE_USE_GROUPS" => "N",
-                                "ROOT_MENU_TYPE" => "top",
-                                "USE_EXT" => "N",
-                                "COMPONENT_TEMPLATE" => "top_menu"
-                            ),
-                            false
-                        ); ?>
+                        <? $APPLICATION->IncludeComponent("bitrix:menu", "top_menu", [
+                            "ALLOW_MULTI_SELECT"    => "N",
+                            "CHILD_MENU_TYPE"       => "subtop",
+                            "DELAY"                 => "N",
+                            "MAX_LEVEL"             => "2",
+                            "MENU_CACHE_GET_VARS"   => [],
+                            "MENU_CACHE_TIME"       => "3600",
+                            "MENU_CACHE_TYPE"       => "N",
+                            "MENU_CACHE_USE_GROUPS" => "N",
+                            "ROOT_MENU_TYPE"        => "top",
+                            "USE_EXT"               => "Y",
+                            "COMPONENT_TEMPLATE"    => "top_menu",
+                        ], false); ?>
 
                         <!-- Поиск -->
                         <div class="header-right">
@@ -175,46 +162,21 @@ use Bitrix\Main\Page\Asset;
     </div>
 
     <!-- Меню (для мобилки) -->
-    <div class="mobile-menu-area visible-xs">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="mobile-menu">
-                        <nav id="dropdown">
-                            <ul>
-                                <li>
-                                    <a href="index.html">Главная</a>
-                                </li>
-                                <li>
-                                    <a href="about_us.html">О нас</a>
-                                </li>
-                                <li>
-                                    <a href="services.html">Услуги</a>
-                                    <ul>
-                                        <li>
-                                            <a href="services_landing.html">Лендинг</a>
-                                        </li>
-                                        <li>
-                                            <a href="services_online_shop.html">Интернет-магазин</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="portfolio.html">Портфолио</a></li>
-
-                                <li>
-                                    <a href="blog.html">Блог</a>
-                                </li>
-                                <li>
-                                    <a href="contacts.html">Контакты</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <? $APPLICATION->IncludeComponent("bitrix:menu", "TopMenuMobile", [
+        "ALLOW_MULTI_SELECT"    => "N",
+        "CHILD_MENU_TYPE"       => "left",
+        "DELAY"                 => "N",
+        "MAX_LEVEL"             => "2",
+        "MENU_CACHE_GET_VARS"   => [],
+        "MENU_CACHE_TIME"       => "3600",
+        "MENU_CACHE_TYPE"       => "N",
+        "MENU_CACHE_USE_GROUPS" => "N",
+        "ROOT_MENU_TYPE"        => "top",
+        "USE_EXT"               => "N",
+        "COMPONENT_TEMPLATE"    => "top_menu",
+    ], false); ?>
 </header>
+
 <?php if ($APPLICATION->GetCurDir() !== '/'): ?>
     <!-- Хлебные крошки (навигация) -->
     <div class="breadcrumb-area brand-bg ptb-100">
@@ -222,21 +184,17 @@ use Bitrix\Main\Page\Asset;
             <div class="row z-index">
                 <div class="col-md-7 col-sm-6">
                     <div class="breadcrumb-title">
-                        <h2 class="white-text"><?= $APPLICATION->ShowTitle(false); ?></h2>
+                        <h2 class="white-text"><?php $APPLICATION->ShowTitle(false); ?></h2>
                     </div>
                 </div>
-                <div class="col-md-5 col-sm-6">
-                    <div class="breadcrumb-menu">
-                        <ol class="breadcrumb text-right">
-                            <li>
-                                <a href="index.html">Главная</a>
-                            </li>
-                            <li>
-                                <a href="#">О нас</a>
-                            </li>
-                        </ol>
-                    </div>
-                </div>
+                <?php $APPLICATION->IncludeComponent("bitrix:breadcrumb", "TopNavigate", Array(
+                    "PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
+                    "SITE_ID" => "s1",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
+                    "START_FROM" => "0",	// Номер пункта, начиная с которого будет построена навигационная цепочка
+                    "COMPONENT_TEMPLATE" => ".default"
+                ),
+                    false
+                );?>
             </div>
         </div>
     </div>
